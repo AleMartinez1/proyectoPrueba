@@ -32,27 +32,37 @@ it('prueba primer caso - Ingreso Recepcionista', function(){
 })
  
 //Caso de prueba 2
-it('Nuevo Paciente', function(){
+it('Ficha Nuevo Paciente', function(){
  
      // ingresamos a la pagina
      //cy.visit("https://cloudrayweb.wolvex.cl/login")
      cy.get('.sidenav > :nth-child(1) > :nth-child(4)').click()
-     cy.get('#passportOrRut').type('12.273.068-9')
+     cy.get('#passportOrRut').type('19562178-0')
      cy.get('.form-patientRegister > :nth-child(2) > input').type('Alejandro')
      cy.get('#apellidoPaternoPaciente').type('Martinez')
      cy.get('#appelidoMaternoPaciente').type('Aguero')
      cy.get('#nacimientoPaciente').clear().type('07/12/1991')
      cy.get('#sexPatient').select('Masculino')
+     cy.get(':nth-child(5) > :nth-child(1) > h3').should('contain.text','Teléfono')
      cy.get('#phonePaciente').type('38157554')
      cy.get('#emailPaciente').type('prueba@prueba.com')
      cy.get('.saveButton').click()
-     //cy.get('.continueButton').click()
-     //cy.get('[style="background: rgb(1, 115, 153); border: none; border-radius: 10px; font-weight: 600; font-size: 16px; color: rgb(255, 255, 255); padding: 10px 96px;"]').click()     
+     cy.get('.continueButton').click()
+     cy.get('[style="background: rgb(1, 115, 153); border: none; border-radius: 10px; font-weight: 600; font-size: 16px; color: rgb(255, 255, 255); padding: 10px 96px;"]').click()
      //cy.get('.continueButton').click()
 
      //cy.NuevoPaciente()
 })
 //Caso de prueba 3
+it('Ficha nuevo examen', function(){
+    cy.get('#specialist').type('prueba')
+    cy.get('#clinic').type('clinica prb')
+    cy.get('#email').type('asd@prueba.com')
+    cy.get(':nth-child(2) > :nth-child(3) > .section_container-exams > :nth-child(1) > .input_container > .checkmark').click()
+    cy.get(':nth-child(2) > :nth-child(3) > .section_container-exams > :nth-child(2) > .input_container > .checkmark').click()
+    cy.get('#organeButtonPhone').click()
+
+})
  
  
 })
