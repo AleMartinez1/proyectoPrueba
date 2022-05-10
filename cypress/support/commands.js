@@ -26,9 +26,20 @@
 
 Cypress.Commands.add("loginRecepcionista", () => {
 
-    //alta recepcionista
+    //Login recepcionista
     cy.get(':nth-child(2) > input').type('0001')
-    cy.get(':nth-child(4) > input').type('florinda.mesa@cloudray.cl')
+    cy.get(':nth-child(4) > input').type('lourdes.rubio@landscape.cl')
+    cy.get(':nth-child(6) > input').type('User1234567')
+    cy.get('.flexboxButton').click()
+    
+
+})
+
+Cypress.Commands.add("loginOperador", () => {
+
+    //Login Operador
+    cy.get(':nth-child(2) > input').type('0001')
+    cy.get(':nth-child(4) > input').type('jejumuru@gmail.com')
     cy.get(':nth-child(6) > input').type('User1234567')
     cy.get('.flexboxButton').click()
     

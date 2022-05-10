@@ -1,10 +1,9 @@
 {
-  "codigoCentro": "9999",
-  "emailUsuario": "tinez@landscape.cl",
+  
   "Documento": "11504145-2",
-  "Nombre": "PruebaTres",
-  "ApellidoPaterno": "Automatizada",
-  "ApellidoMaterno": "Test",
+  "Nombre": "AutmationTest",
+  "ApellidoPaterno": "Alejandro",
+  "ApellidoMaterno": "Martinez",
   "FechaNac": "07/12/1991",
   "Sexo": "Masculino",
   "teléfono": "1234567",
