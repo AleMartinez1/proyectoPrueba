@@ -1,12 +1,13 @@
 {
   
   "Documento": "11504145-2",
-  "Nombre": "AutmationTest",
-  "ApellidoPaterno": "Alejandro",
-  "ApellidoMaterno": "Martinez",
+  "Nombre": "Test",
+  "ApellidoPaterno": "Automation",
+  "ApellidoMaterno": "Prueba",
   "FechaNac": "07/12/1991",
   "Sexo": "Masculino",
   "teléfono": "1234567",
-  "Email": "alejandro.martinez@landscape.cl"
+  "Email": "alejandro.martinez@landscape.cl",
+  "Examen": "Examen1"
 
 }
