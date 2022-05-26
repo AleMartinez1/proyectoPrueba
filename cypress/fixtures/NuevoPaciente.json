@@ -8,6 +8,9 @@
   "Sexo": "Masculino",
   "teléfono": "1234567",
   "Email": "alejandro.martinez@landscape.cl",
+  "Especialista": "Especialista Test",
+  "Clinica": "Clinica Test",
+  "EmailEspecialista":"ABC@gmail.com",
   "Examen": "Examen1"
 
 }
