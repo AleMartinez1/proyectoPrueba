@@ -10,7 +10,7 @@ describe('Regresion ', function () {
             //cy.fixture(this.datos.Examen).as('Examen1')
         })
  
-        //cy.viewport(1343, 550)
+        cy.viewport(1343, 550)
         
 
     })
@@ -35,24 +35,17 @@ describe('Regresion ', function () {
         cy.get('.sidenav > :nth-child(1) > :nth-child(4)').click()
         cy.get('[style="margin-left: 26px;"] > .titleBar').should('contain.text', 'Ficha paciente')
         //cy.get('#passportOrRut').type(this.datos.Documento)
-        cy.get('#documento').click()//.select('Pasaporte')
-        //cy.get('#documento').should('contain.text', 'Pasaporte')
+        cy.get('#documento').select('Pasaporte')
+        cy.get('#documento').should('contain.text', 'Pasaporte')
         //Generar numero aleatorio de Pasaporte
-        //Cypress.config('UniqueNumber', `${Math.floor(Math.random() * 100000000)}`)
-        //cy.get('#passportOrRut').type(Cypress.config('UniqueNumber'))
+        Cypress.config('UniqueNumber', `${Math.floor(Math.random() * 100000000)}`)
+        cy.get('#passportOrRut').type(Cypress.config('UniqueNumber'))
 
         cy.get('#errorCardPatientNotFound').should('contain.text', 'Paciente no encontrado. Ingrese los datos del paciente en el formulario a continuación y marque la opción “Guardar” antes de continuar.')
-        
-        cy.get('#nacimientoPaciente').clear().type(this.datos.FechaNac)
-        cy.get('.form-patientRegister > :nth-child(2) > input').type('Alejandro')//(this.datos.Nombre)
-        cy.get('.form-patientRegister > :nth-child(2) > input').should('contain.text', 'Alejandro')
-
+        cy.wait(2000)
+        cy.get('.form-patientRegister > :nth-child(2) > input').type(this.datos.Nombre)
         cy.get('#apellidoPaternoPaciente').type(this.datos.ApellidoPaterno)
-        cy.get('#apellidoPaternoPaciente').should('contain.text', 'Automation')
         cy.get('#appelidoMaternoPaciente').type(this.datos.ApellidoMaterno)
-
-
-        
         cy.get('#sexPatient').select(this.datos.Sexo)
         cy.get('#phonePaciente').type(this.datos.teléfono)
         cy.get('#emailPaciente').type(this.datos.Email)
@@ -61,9 +54,9 @@ describe('Regresion ', function () {
         cy.get('.continueButton').click()
 
         //Cargar especialista y examenes     
-        cy.get('#specialist').type('Prueba Especialista')
-        cy.get('#clinic').type('clinica prueba')
-        cy.get('#email').type('asd@prueba.com')
+        cy.get('#specialist').type(this.datos.Especialista)
+        cy.get('#clinic').type(this.datos.Clinica)
+        cy.get('#email').type(this.datos.EmailEspecialista)
         //cy.get(':nth-child(2) > :nth-child(3) > .section_container-exams > :nth-child(1) > .input_container > .checkmark').click()
         cy.get(':nth-child(3) > [style="display: flex; justify-content: space-between;"] > .section_container-exams > :nth-child(1) > .input_container > .checkmark').click()
         cy.get(':nth-child(3) > [style="display: flex; justify-content: space-between;"] > .section_container-delivery > :nth-child(1) > .input_container > .checkmark').click()
