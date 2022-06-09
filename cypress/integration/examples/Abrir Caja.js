@@ -31,6 +31,8 @@ describe('Abrir Caja', function () {
         //Alta nuevo paciente
         cy.get('.sidenav > :nth-child(1) > :nth-child(4)').click()
         cy.get('[style="margin-left: 26px;"] > .titleBar').should('contain.text', 'Ficha paciente')
+       
+       
         //cy.get('#passportOrRut').type(this.datos.Documento)
         cy.get('#documento').select('Pasaporte')
         cy.get('#documento').should('contain.text', 'Pasaporte')

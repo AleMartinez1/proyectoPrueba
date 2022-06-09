@@ -46,6 +46,7 @@ describe('Regresion ', function () {
         cy.get('.form-patientRegister > :nth-child(2) > input').type(this.datos.Nombre)
         cy.get('#apellidoPaternoPaciente').type(this.datos.ApellidoPaterno)
         cy.get('#appelidoMaternoPaciente').type(this.datos.ApellidoMaterno)
+        cy.get('#nacimientoPaciente').clear().type(this.datos.FechaNac)
         cy.get('#sexPatient').select(this.datos.Sexo)
         cy.get('#phonePaciente').type(this.datos.teléfono)
         cy.get('#emailPaciente').type(this.datos.Email)

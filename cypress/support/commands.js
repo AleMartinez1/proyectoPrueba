@@ -45,3 +45,7 @@ Cypress.Commands.add("loginOperador", () => {
     
 
 })
+
+
+
+
