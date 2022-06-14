@@ -33,6 +33,7 @@ describe('Regresion ', function () {
 
         //Alta nuevo paciente
         cy.get('.sidenav > :nth-child(1) > :nth-child(4)').click()
+        cy.get('[style="margin-left: 26px;"] > .titleBar').should
         cy.get('[style="margin-left: 26px;"] > .titleBar').should('contain.text', 'Ficha paciente')
         //cy.get('#passportOrRut').type(this.datos.Documento)
         cy.get('#documento').select('Pasaporte')
@@ -98,19 +99,11 @@ describe('Regresion ', function () {
         cy.get('.buttonDisplay > [style="background-color: rgb(1, 115, 153); color: rgb(255, 255, 255); box-shadow: rgba(0, 0, 0, 0.15) 0px 10px 25px; margin-right: 20px;"]').last().click()
         cy.get('.take_exams-upload_container > button').click()
         
-       /* cy.get('.inputFile-label').then(function ($el) {
-            //convertir la imagen en un string de base64
-            const blob = Cypress.Blob.base64StringToBlob(this.Examen, 'image/png')
- 
-            const file = new File([blob], this.datos.Examen, { type: 'image/png' })
-            const list = new DataTransfer()
- 
-            list.items.add(file)
-            const myFileList = list.files
- 
-            $el[0].files = myFileList
-            $el[0].dispatchEvent(new Event('change', { bubbles: true }))
-        })*/
+       //subir examen
+       const imagefile = 'examen1.png';
+       cy.get('.inputFile-input').attachFile(imagefile);
+       cy.get('.EntregasPendientes').click()
+       cy.get('[style="background-color: rgb(238, 155, 40); color: rgb(247, 247, 255); box-shadow: rgba(0, 0, 0, 0.15) 0px 10px 25px 0px;"]').click()
 
         //cy.get('[style="background-color: rgb(238, 155, 40); color: rgb(247, 247, 255); box-shadow: rgba(0, 0, 0, 0.15) 0px 10px 25px 0px;"]').click()
         //cy.get('.take_exams-RadiologistSelect').select('Alonso Arias Molina')
