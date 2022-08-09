@@ -1,5 +1,6 @@
 /// <reference types="Cypress"/>
 
+
 //Suite de casos que contiene cada caso
 describe('Regresion ', function () {
 
@@ -19,6 +20,7 @@ describe('Regresion ', function () {
 
         // ingresamos a la pagina
         cy.visit("https://cloudraywebqa.landscape.cl/login")
+        
 
     })
 

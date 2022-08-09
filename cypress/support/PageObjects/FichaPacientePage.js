@@ -1,21 +1,20 @@
-class FichaPacientePage 
-{
-    getFichaPacienteText() 
+class FichaPacientePage {
+    getFichaPacienteText() //Texto "Ficha paciente"
     {
         return cy.get('[style="margin-left: 26px;"] > .titleBar')
     }
 
-    getDocumentoSelect() 
+    getDocumentoSelect() //Seleccionar documento
     {
         return cy.get('#documento')
     }
 
-    getDocumentoInput() 
+    getDocumentoInput() // tipear documento
     {
         return cy.get('#passportOrRut')
     }
 
-    getBusquedaPacienteAlert() 
+    getBusquedaPacienteAlert() // Mensaje de paciente no encontrado (no se usa en regresion)
     {
         return cy.get('#errorCardPatientNotFound')
     }
@@ -30,7 +29,7 @@ class FichaPacientePage
         return cy.get('#errorCardPatientRegister')
     }
 
-    getPacienteRegistradoAlert() 
+    getContinuarButton() 
     {
         return cy.get('.continueButton')
     }
