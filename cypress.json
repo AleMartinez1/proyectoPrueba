@@ -1,1 +1,7 @@
-{}
+{
+"env":{
+    "QA Cliente": "https://cloudray.landscape.cl/login",
+    "QA Landscape": "https://cloudraywebqa.landscape.cl/login"
+    
+}
+}

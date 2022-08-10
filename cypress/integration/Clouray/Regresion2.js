@@ -20,11 +20,9 @@ describe('Regresion Cloudray', function () {
 
 
     beforeEach(function () {
-        // ingresamos a la pagina
         //QA Landscape
-        //cy.visit("https://cloudraywebqa.landscape.cl/login")
         //QA Cliente
-        cy.visit("https://cloudray.landscape.cl/login")
+        cy.visit(Cypress.env('QA Landscape'))
 
     })
 
