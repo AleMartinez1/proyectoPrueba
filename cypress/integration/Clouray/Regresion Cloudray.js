@@ -1,5 +1,6 @@
 /// <reference types="Cypress"/>
 
+
 //Suite de casos que contiene cada caso
 describe('Regresion ', function () {
 
@@ -9,16 +10,17 @@ describe('Regresion ', function () {
             this.datos = datos
             //cy.fixture(this.datos.Examen).as('Examen1')
         })
- 
+
         cy.viewport(1343, 550)
-        
+
 
     })
 
-     beforeEach(function () {
-       
+    beforeEach(function () {
+
         // ingresamos a la pagina
         cy.visit("https://cloudraywebqa.landscape.cl/login")
+        
 
     })
 
@@ -33,6 +35,7 @@ describe('Regresion ', function () {
 
         //Alta nuevo paciente
         cy.get('.sidenav > :nth-child(1) > :nth-child(4)').click()
+        
         cy.get('[style="margin-left: 26px;"] > .titleBar').should('contain.text', 'Ficha paciente')
         //cy.get('#passportOrRut').type(this.datos.Documento)
         cy.get('#documento').select('Pasaporte')
@@ -43,9 +46,11 @@ describe('Regresion ', function () {
 
         cy.get('#errorCardPatientNotFound').should('contain.text', 'Paciente no encontrado. Ingrese los datos del paciente en el formulario a continuación y marque la opción “Guardar” antes de continuar.')
         cy.wait(2000)
+       //cy.AgregarPaciente()
         cy.get('.form-patientRegister > :nth-child(2) > input').type(this.datos.Nombre)
         cy.get('#apellidoPaternoPaciente').type(this.datos.ApellidoPaterno)
         cy.get('#appelidoMaternoPaciente').type(this.datos.ApellidoMaterno)
+        cy.get('#nacimientoPaciente').clear().type(this.datos.FechaNac)
         cy.get('#sexPatient').select(this.datos.Sexo)
         cy.get('#phonePaciente').type(this.datos.teléfono)
         cy.get('#emailPaciente').type(this.datos.Email)
@@ -96,24 +101,36 @@ describe('Regresion ', function () {
         cy.get('.titleBody').should('contain.text', 'Próximos pacientes')
         cy.get('.buttonDisplay > [style="background-color: rgb(1, 115, 153); color: rgb(255, 255, 255); box-shadow: rgba(0, 0, 0, 0.15) 0px 10px 25px; margin-right: 20px;"]').last().click()
         cy.get('.take_exams-upload_container > button').click()
-        
-       /* cy.get('.inputFile-label').then(function ($el) {
-            //convertir la imagen en un string de base64
-            const blob = Cypress.Blob.base64StringToBlob(this.Examen, 'image/png')
- 
-            const file = new File([blob], this.datos.Examen, { type: 'image/png' })
-            const list = new DataTransfer()
- 
-            list.items.add(file)
-            const myFileList = list.files
- 
-            $el[0].files = myFileList
-            $el[0].dispatchEvent(new Event('change', { bubbles: true }))
-        })*/
 
-        //cy.get('[style="background-color: rgb(238, 155, 40); color: rgb(247, 247, 255); box-shadow: rgba(0, 0, 0, 0.15) 0px 10px 25px 0px;"]').click()
-        //cy.get('.take_exams-RadiologistSelect').select('Alonso Arias Molina')
-        //cy.get('[style="background: rgb(218, 221, 223); border-radius: 10px; box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 10px; color: rgb(255, 255, 255); font-weight: bold; padding: 10px 20px;"]').click()
+        //subir examen
+        const imagefile = 'examen1.png';
+        cy.get('.inputFile-input').attachFile(imagefile);
+        cy.get('.EntregasPendientes').click()
+        cy.get('[style="background-color: rgb(238, 155, 40); color: rgb(247, 247, 255); box-shadow: rgba(0, 0, 0, 0.15) 0px 10px 25px 0px;"]').click()
+
+
+        cy.get('.take_exams-RadiologistSelect').select('Alonso Arias Molina')
+        cy.get('body > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(3) > div:nth-child(3) > form:nth-child(1) > div:nth-child(5) > div:nth-child(2)').click()
+
+        
+    })
+    it('Usuario radiologo toma un informe', function (){
+
+        cy.loginRadiologo()
+        cy.get('.sidenav > :nth-child(1) > :nth-child(4)').click()
+        cy.get('[style="background: rgb(1, 115, 153); border: none; border-radius: 10px; box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 10px; color: rgb(255, 255, 255); font-size: 16px; font-weight: 700; padding: 10px 20px;"]').click()
+        cy.wait(2000)
+        cy.get(':nth-child(1) > [style="display: flex; justify-content: flex-end; padding: 10px 0px;"] > [style="background: rgb(1, 115, 153); border: none; border-radius: 10px; box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 10px; color: rgb(255, 255, 255); font-size: 16px; font-weight: 700; padding: 10px 20px;"]').click()
+        const yourFilePath = 'examen1.png';
+        cy.get('.inputFile-input').attachFile(yourFilePath)
+        cy.get('[style="background: rgb(1, 115, 153); color: rgb(255, 255, 255); border-radius: 10px; box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 10px; font-weight: bold; padding: 10px 20px;"]').click()
+        cy.get(':nth-child(1) > [style="display: flex; justify-content: flex-end; padding: 10px 0px;"] > [style="background: rgb(1, 115, 153); border: none; border-radius: 10px; box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 10px; color: rgb(255, 255, 255); font-size: 16px; font-weight: 700; padding: 10px 20px;"]').click()
+        cy.get('.inputFile-input').attachFile(yourFilePath)
+        cy.get('[style="background: rgb(1, 115, 153); color: rgb(255, 255, 255); border-radius: 10px; box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 10px; font-weight: bold; padding: 10px 20px;"]').click()
+        cy.get('[style="background: rgb(238, 155, 40); border: none; border-radius: 10px; color: rgb(255, 255, 255); font-weight: bold; padding: 10px 20px;"]').click()
+        cy.get('[style="background: rgb(238, 155, 40); border-radius: 10px; box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 10px; color: rgb(255, 255, 255); font-weight: bold; padding: 10px 20px;"]').click()
+        cy.get('[style="text-align: center; width: 430px;"] > div > [style="background: rgb(1, 115, 153); border: none; border-radius: 10px; box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 10px; color: rgb(255, 255, 255); font-size: 16px; font-weight: 700; padding: 10px 20px;"]').click()
+        
 
     })
 

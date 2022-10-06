@@ -17,7 +17,7 @@ describe('Abrir Caja', function () {
     beforeEach(function () {
        
         // ingresamos a la pagina
-        cy.visit("https://cloudray.landscape.cl/login")
+        cy.visit("https://cloudraywebqa.landscape.cl/login")
     })
 
 
@@ -31,6 +31,8 @@ describe('Abrir Caja', function () {
         //Alta nuevo paciente
         cy.get('.sidenav > :nth-child(1) > :nth-child(4)').click()
         cy.get('[style="margin-left: 26px;"] > .titleBar').should('contain.text', 'Ficha paciente')
+       
+       
         //cy.get('#passportOrRut').type(this.datos.Documento)
         cy.get('#documento').select('Pasaporte')
         cy.get('#documento').should('contain.text', 'Pasaporte')
@@ -70,9 +72,9 @@ describe('Abrir Caja', function () {
         
 
         //Apertura de caja
-        /*cy.get('.successModalHeader > h2').should('contain.text','Apertura de caja')
+        //cy.get('.successModalHeader > h2').should('contain.text','Apertura de caja')
         //cy.get('.successModalText').should('contain.text','Esta operacion abre la contabilidad...')
-        cy.get('[style="text-align: center;"] > button').click()*/
+        //cy.get('[style="text-align: center;"] > button').click()
         
         //Pagar orden 
         cy.get('.paymentTitle').should('contain.text', 'Registro de pago')
@@ -91,12 +93,14 @@ describe('Abrir Caja', function () {
 
     //verificar caja
 
+    it('Nuevo paciente paga orden', function () {
+
         cy.loginRecepcionista()
 
         cy.get('#topIconSidebar > a').click()
         cy.get('.TitleAndDate > h1').should('contain.text','Administración')
         cy.get('[style="z-index: 1;"] > .adminTabTitle').should('contain.text','Caja')
         
-
+    })
    
 })

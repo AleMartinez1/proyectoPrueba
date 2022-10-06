@@ -1,14 +1,14 @@
 {
   "Documento": "11504145-2",
-  "Nombre": "Test",
-  "ApellidoPaterno": "Automation",
+  "Nombre": "ABC",
+  "ApellidoPaterno": "Paterno",
   "ApellidoMaterno": "Prueba",
   "FechaNac": "07/12/1991",
   "Sexo": "Masculino",
   "teléfono": "1234567",
   "Email": "alejandro.martinez@landscape.cl",
-  "Especialista": "Especialista Test",
-  "Clinica": "Clinica Test",
+  "Especialista": "Test",
+  "Clinica": "Test",
   "EmailEspecialista":"ABC@gmail.com",
   "Examen": "Examen1"
 
